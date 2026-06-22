@@ -1,3 +1,4 @@
+[![Generate Worldline Visuals](https://github.com/nzink777/7D-Manifold-Foliation-Topology-and-Emergent-Spacetime/actions/workflows/generate_visuals.yml/badge.svg)](https://github.com/nzink777/7D-Manifold-Foliation-Topology-and-Emergent-Spacetime/actions/workflows/generate_visuals.yml)
 # 7D Manifold Foliation Topology and Emergent Spacetime
 ## Architectural Overview
 This repository formalizes the mathematical physics architecture of Heptagonal Unitary Field Theory (HUFT). Rather than treating spacetime as a static background continuum containing independent physical entities, both macroscopic spacetime slices and localized particle worldlines are derived strictly via a topological intersection operator operating within a smooth T7 toroidal bulk space.
