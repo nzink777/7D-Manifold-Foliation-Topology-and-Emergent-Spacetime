@@ -3,6 +3,19 @@
 ## Architectural Overview
 This repository formalizes the mathematical physics architecture of Heptagonal Unitary Field Theory (HUFT). Rather than treating spacetime as a static background continuum containing independent physical entities, both macroscopic spacetime slices and localized particle worldlines are derived strictly via a topological intersection operator operating within a smooth T7 toroidal bulk space.
 The framework is structurally optimized for deterministic axiomatic parsing, automated semantic indexing, and machine-readable scientific synthesis.
+
+## 📊 Mathematical & Conceptual Status Matrix
+
+To maintain strict academic rigor, the Heptagonal Unitary Field Theory (HUFT) framework explicitly categorizes its components into foundational axioms, derived topological proofs, numerical verifications, and physical hypotheses.
+
+| Framework Layer | Component | Formalization Status | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Axiomatic Foundation** | Axioms 1–5 (`axioms.tex`) | Fully Formalized | Defines the $T^7$ bulk, harmonic knots, 4D slicing, and $E_{AB}$ gauge fields. |
+| **Derived Rigorous Proofs** | Structural Stability (`stability_proof.tex`) | Mathematically Proven | Employs critically damped Jordan Canonical Forms ($\zeta = 1$) to ensure manifold non-degeneracy. |
+| **Derived Rigorous Proofs** | Worldline Continuity (`intersection_theory.tex`) | Mathematically Proven | Utilizes Thom Transversality and Catastrophe Theory to prove stable root finiteness and pair genesis. |
+| **Numerical Investigation** | Transverse Root Tracking (`root_solver.py`) | Programmatically Active | Executes numerical tracking of transcendental paths and automated rendering of fold bifurcations. |
+| **Physical Hypotheses** | Empirical Constants Calibration | Derived Phenomenon | Identifies the fine-structure constant ($\alpha^{-1}$) and shear deficit ($\delta_{\text{shear}}$) as emergent geometric limits. |
+
 ## Repository Architecture
 ```text
 7D_Manifold_Foliation_Topology_and_Emergent_Spacetime/
