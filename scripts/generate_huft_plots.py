@@ -2,9 +2,19 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fsolve
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+# Define the new structural path for simulation results
+OUTPUT_DIR = "simulation_code/results"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+print(f"Initializing HUFT Math Engine. Target directory: {OUTPUT_DIR}")
 
 # Ensure output directory exists
-os.makedirs("output_plots", exist_ok=True)
+# os.makedirs("output_plots", exist_ok=True)
 
 # Global Scaling Parameters
 ALPHA_INV = 137.0354
@@ -49,7 +59,7 @@ ax.text(0.2, 5.5, r"$\det(\mathbf{J}) = 0$ Fold Bifurcation (Pair Genesis)",
         bbox=dict(facecolor='white', alpha=0.8, boxstyle='round,pad=0.5'), fontsize=10)
 
 plt.tight_layout()
-plt.savefig("output_plots/worldline_bifurcation.png", dpi=300)
+plt.savefig(os.path.join(OUTPUT_DIR, "worldline_bifurcation.png"), dpi=300)
 plt.close()
 
 # -------------------------------------------------------------------------
@@ -86,9 +96,8 @@ ax.grid(True, linestyle=':', alpha=0.3)
 ax.legend(loc='upper right')
 
 plt.tight_layout()
-plt.savefig("output_plots/jordan_phase_portrait.png", dpi=300)
+plt.savefig(os.path.join(OUTPUT_DIR, "jordan_phase_portrait.png"), dpi=300)
 plt.close()
-
 # -------------------------------------------------------------------------
 # 3. GENERATE: lemniscate_shear_deficit.png
 # -------------------------------------------------------------------------
@@ -122,7 +131,10 @@ ax.grid(True, linestyle='--', alpha=0.4)
 ax.legend(loc='lower right')
 
 plt.tight_layout()
-plt.savefig("output_plots/lemniscate_shear_deficit.png", dpi=300)
+plt.savefig(os.path.join(OUTPUT_DIR, "lemniscate_shear_deficit.png"), dpi=300)
 plt.close()
+
+print("All tasks completed successfully.")
+
 
 print("All tasks completed. Visuals generated successfully in /output_plots.")
