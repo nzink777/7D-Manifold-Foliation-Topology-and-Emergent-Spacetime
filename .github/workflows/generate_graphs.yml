@@ -1,16 +1,16 @@
-name: Generate and Update HUFT Graph Visuals
+name: Generate and Update 7D Manifold Foliation Topology Graph Visuals
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allows manual trigger from the GitHub Actions UI
+  workflow_dispatch:
 
 jobs:
   render_plots:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Allows the runner to commit updated graphics back to the repo
+      contents: write
 
     steps:
       - name: Checkout Repository
@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Graph Generation Engine
         run: |
-          mkdir -p output_plots
+          # The script internally handles creating simulation_code/results/
           python scripts/generate_huft_plots.py
 
       - name: Commit and Push Updated Visuals
@@ -36,14 +36,13 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Move files to your preferred layout folders if necessary
-          cp output_plots/* . || true
+          # Stage only the targeted simulation results directory
+          git add simulation_code/results/*.png
           
-          git add *.png
           if git diff --staged --quiet; then
-            echo "No changes detected in the generated plots."
+            echo "No changes detected in simulation_code/results/."
           else
-            git commit -m "chore: auto-regenerate HUFT graph worldline visuals [skip ci]"
+            git commit -m "chore: auto-regenerate simulation results [skip ci]"
             git push
           fi
           
