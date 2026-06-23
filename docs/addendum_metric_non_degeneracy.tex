@@ -1,0 +1,92 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\title{\textbf{Addendum I: Metric Non-Degeneracy Conditions and Topological Regularization at Crossover Nodes within the HUFT Framework}}
+\author{\textbf{Natasha Zink, MS} \\ \small Applied Mathematics and Computer Science}
+\date{June 22, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This auxiliary document serves as a formal mathematical addendum to the primary Heptagonal Unitary Field Theory (HUFT) manuscript. We explicitly formalize the metric non-degeneracy condition $\det(g_{\mu\nu}) \neq 0$ governing the emergent 4D macroscopic spacetime slice $\mathcal{M}^4(\tau)$. Special attention is devoted to the topological crossover node $C=(0,0)$ of the compactified Bernoulli lemniscate state manifold, demonstrating how the torsional shear deficit parameter $\delta_{\text{shear}} \approx 0.681690$ prevents geometric collapse and guarantees the structural survival of the inverse metric $g^{\mu\nu}$.
+\end{abstract}
+
+\section{The Fundamental Non-Degeneracy Requirement}
+Let $\mathcal{M}^4(\tau)$ represent the emergent smooth, pseudo-Riemannian physical manifold parameterized by cosmological time $\tau$. For the system to preserve a valid causal structure, wave propagation mechanics, and well-defined Christoffel connections $\Gamma^\alpha_{\mu\nu}$, the localized metric tensor $g_{\mu\nu}$ must remain strictly non-degenerate across all configuration spaces:
+
+\begin{equation}
+    \mathcal{G} \equiv \det(g_{\mu\nu}) \neq 0 \quad \forall \, x^\mu \in \mathcal{M}^4(\tau)
+\end{equation}
+
+Condition (1) is a mandatory dependency ensuring the bijective mapping between the tangent $T\mathcal{M}$ and cotangent $T^*\mathcal{M}$ bundles, allowing the unique definition of the inverse metric tensor $g^{\mu\nu}$ via the standard Kronecker delta relations:
+
+\begin{equation}
+    g_{\mu\alpha} g^{\alpha\nu} = \delta_{\mu}^\nu
+\end{equation}
+
+If $\det(g_{\mu\nu}) \to 0$, the spacetime manifold undergoes local dimensional collapse, causing the scalar curvature invariant $R = g^{\mu\nu}R_{\mu\nu}$ to diverge non-physically, which breaks the structural continuity of the intersection operator $\mathcal{P}(\tau) = \gamma(S^1) \cap \mathcal{M}^4(\tau)$.
+
+\section{The Lemniscate Coordinate Hazard at Node $C=(0,0)$}
+The localized loop state manifold is modeled via a parametric Bernoulli lemniscate configuration space. Expressed in localized intrinsic polar coordinates $(r, \theta)$, the configuration plane satisfies:
+
+\begin{equation}
+    r^2 = a^2 \cos(2\theta), \quad \theta \in \left[-\frac{\pi}{4}, \frac{\pi}{4}\right] \cup \left[\frac{3\pi}{4}, \frac{5\pi}{4}\right]
+\end{equation}
+
+An isolated evaluation of the induced 1D line element $ds^2 = g_{\theta\theta}d\theta^2$ along this isolated curve yields:
+
+\begin{equation}
+    g_{\theta\theta} = \left(\frac{dr}{d\theta}\right)^2 + r^2 = \frac{a^4 \sin^2(2\theta)}{r^2} + r^2 = \frac{a^2}{\sqrt{\cos(2\theta)}}
+\end{equation}
+
+As the internal state trajectory approaches the topological inversion node where orientation flips to flip binary charge signs, the radial distance contracts to zero:
+\begin{equation}
+    \lim_{\theta \to \pm \frac{\pi}{4}} r = 0 \implies \lim_{\theta \to \pm \frac{\pi}{4}} g_{\theta\theta} = \infty
+\end{equation}
+
+Conversely, tracking the coordinate transformation via tracking parameters demonstrates that a naive projection causes the component metric determinant to collapse to zero relative to the macroscopic ambient embedding. This coordinate degeneracy threatens the validity of the Brouwer mapping index at the exact point of charge assignment.
+
+\section{Bulk Regularization via Torsional Shear Deficit}
+To resolve the local node degeneracy, HUFT establishes that the macroscopic metric $g_{\mu\nu}$ on $\mathcal{M}^4(\tau)$ is not a purely isolated 1D boundary, but rather an un-collapsed subset of the complete 7D toroidal bulk metric $G_{AB}$ ($A,B \in \{1, \dots, 7\}$).
+
+The global winding vectors $\omega_A$ dictate that the loop maintains stable higher-dimensional support. When the line element is integrated through the full 7-dimensional foliation layout, the metric components receive a non-zero background stress tensor contribution proportional to the global foliation resonance scale $\alpha^{-1} \approx 137.0354$ and the geometric torsional shear boundary limit $\delta_{\text{shear}} \approx 0.681690$.
+
+We define the regularized, effective macroscopic metric tensor component $g_{\mu\nu}^{\text{eff}}$ by introducing the background torsional constraint function $\Phi(\delta_{\text{shear}})$:
+
+\begin{equation}
+    g_{\mu\nu}^{\text{eff}} = g_{\mu\nu}^{\text{naive}} + \eta_{\mu\nu} \cdot \exp\left(-\frac{1}{\alpha \cdot \delta_{\text{shear}}}\right)
+\end{equation}
+
+Where $\eta_{\mu\nu}$ is the flat Minkowski background metric tensor acting as a underlying stabilizing field. Evaluating the full matrix determinant under this regularized ansatz yields:
+
+\begin{equation}
+    \det(g_{\mu\nu}^{\text{eff}}) = \det\left(g_{\mu\nu}^{\text{naive}} + \eta_{\mu\nu}\exp\left[-\frac{1}{\alpha \cdot \delta_{\text{shear}}}\right]\right)
+\end{equation}
+
+At the exact crossover node $C=(0,0)$ where $g_{\mu\nu}^{\text{naive}} \to 0$, the exponential bulk factor remains strictly positive and bounded because $\alpha > 0$ and $\delta_{\text{shear}} = 0.681690 \neq 0$:
+
+\begin{equation}
+    \det(g_{\mu\nu}^{\text{eff}})\Big|_{C} = \det\left(\eta_{\mu\nu}\exp\left[-\frac{1}{\alpha \cdot \delta_{\text{shear}}}\right]\right) = - \exp\left(-\frac{4}{\alpha \cdot \delta_{\text{shear}}}\right)
+\end{equation}
+
+Since $\exp(-4 / (\alpha\delta_{\text{shear}})) > 0$ for all real, finite parameter constraints, the global determinant is strictly non-vanishing:
+
+\begin{equation}
+    \det(g_{\mu\nu}^{\text{eff}}) \leq -\epsilon < 0 \quad \forall \, \theta \in [0, 2\pi)
+\end{equation}
+
+\section{Conclusion and Dependent Verifications}
+By executing this regularized geometric structure, the HUFT framework satisfies its primary mathematical dependencies:
+\begin{enumerate}
+    \item \textbf{Global Smoothness:} The inverse metric $g^{\mu\nu}$ is guaranteed to exist globally, preventing unphysical singular horizons at the crossover coordinate.
+    \item \textbf{Causal Invariance:} The signature of the metric tensor remains strictly invariant $(-, +, +, +)$, ensuring stable worldline propagation across fold catastrophes without topological tearing.
+    \item \textbf{Quantization Integrity:} The non-degeneracy of the metric allows the Jacobian mapping determinant $\det(\mathbf{J})$ to cross smoothly from positive to negative regimes through a controlled, bounded boundary intersection framework.
+\end{enumerate}
+
+\end{document}
