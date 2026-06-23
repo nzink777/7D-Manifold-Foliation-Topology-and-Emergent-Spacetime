@@ -1,0 +1,49 @@
+name: Generate and Update HUFT Graph Visuals
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions UI
+
+jobs:
+  render_plots:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allows the runner to commit updated graphics back to the repo
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy matplotlib scipy
+
+      - name: Run Graph Generation Engine
+        run: |
+          mkdir -p output_plots
+          python scripts/generate_huft_plots.py
+
+      - name: Commit and Push Updated Visuals
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Move files to your preferred layout folders if necessary
+          cp output_plots/* . || true
+          
+          git add *.png
+          if git diff --staged --quiet; then
+            echo "No changes detected in the generated plots."
+          else
+            git commit -m "chore: auto-regenerate HUFT graph worldline visuals [skip ci]"
+            git push
+          fi
+          
